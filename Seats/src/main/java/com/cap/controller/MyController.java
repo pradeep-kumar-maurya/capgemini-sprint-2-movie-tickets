@@ -2,11 +2,10 @@ package com.cap.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -46,10 +45,4 @@ public class MyController {
 		String string = payment_service.payments(pay); 
 		return string; 
 	}
-	
-	// controller level exception handling
-		@ExceptionHandler(InvalidDetailsException.class) 
-		public ResponseEntity<String> seatNotFound(InvalidDetailsException e){
-			return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND); 
-		}
 }
